@@ -11,25 +11,19 @@ import cz.ucl.jee.mybank.accounts.AccountBlackList;
 import cz.ucl.jee.mybank.entity.PaymentOrder;
 import cz.ucl.jee.mybank.transfer.OrderSender;
 
-@Decorator
-public class FraudProtectionDecorator implements OrderSender {
+//TODO Annotate to make this class a decorator and declare it to implement OrderSender
+public class FraudProtectionDecorator {
 
 	public static BigDecimal MAX_AMOUNT = new BigDecimal(1000000);
 
-	@Inject
-	@Any
-	@Delegate
+	//TODO Annotate
 	OrderSender orderSender;
 	
-	@Inject
-	AccountBlackList blackList;
+	//TODO Inject AccountBlackList
 
 	public void sendPaymentOrder(PaymentOrder order) {
 
-		if(blackList.isAccountOnList(order.getCreditAccount())){
-			System.out.println("Amount too large, transaction denied.");
-			return;
-		}
+		//TODO implmenent blacklist checking
 
 		if (order.getAmount().compareTo(MAX_AMOUNT) > 0){
 			System.out.println("Amount too large, transaction denied.");

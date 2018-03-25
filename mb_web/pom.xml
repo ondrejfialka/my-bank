@@ -14,6 +14,7 @@
   <build>
   	<finalName>mb_web</finalName>
     <sourceDirectory>src</sourceDirectory>
+      <testSourceDirectory>test</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -43,5 +44,17 @@
 	  	<artifactId>mb_account_module</artifactId>
 	  	<version>2.1-SNAPSHOT</version>	  
 	</dependency>
-  </dependencies>
+       <dependency>
+           <groupId>org.mockito</groupId>
+           <artifactId>mockito-core</artifactId>
+           <version>2.16.0</version>
+           <scope>test</scope>
+       </dependency>
+       <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+           <version>4.12</version>
+           <scope>test</scope>
+       </dependency>
+   </dependencies>
 </project>

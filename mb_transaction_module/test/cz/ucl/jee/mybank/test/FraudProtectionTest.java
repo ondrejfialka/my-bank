@@ -7,13 +7,13 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import cz.ucl.jee.mybank.accounts.Account;
 import cz.ucl.jee.mybank.accounts.AccountBlackList;
 import cz.ucl.jee.mybank.entity.PaymentOrder;
 import cz.ucl.jee.mybank.security.FraudProtectionDecorator;
 import cz.ucl.jee.mybank.transfer.OrderSender;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FraudProtectionTest {
@@ -41,7 +41,7 @@ public class FraudProtectionTest {
 		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT);							
 		fpDecorator.sendPaymentOrder(order);
 		//verify, that the method was called
-		Mockito.verify(orderSender, Mockito.times(1)).sendPaymentOrder(order);
+		Mockito.verify(orderSender).sendPaymentOrder(order);
 	}
 	
 	@Test

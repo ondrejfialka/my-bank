@@ -66,7 +66,7 @@ public class Account {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		if (bankCode.equals(other.bankCode))
+		if (!bankCode.equals(other.bankCode))
 			return false;
 		if (number != other.number)
 			return false;

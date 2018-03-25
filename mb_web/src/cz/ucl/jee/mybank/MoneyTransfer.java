@@ -8,6 +8,8 @@ import cz.ucl.jee.mybank.accounts.Account;
 import cz.ucl.jee.mybank.entity.PaymentOrder;
 import cz.ucl.jee.mybank.transfer.OrderSender;
 
+import java.math.BigDecimal;
+
 @RequestScoped
 @Named
 public class MoneyTransfer {
@@ -22,6 +24,8 @@ public class MoneyTransfer {
 	private int creditAccountPrefix;
 	private long creditAccountNo;
 	private String creditBankCode;
+
+	private BigDecimal amount;
 	
 	public void send(){
 		PaymentOrder order = new PaymentOrder();
@@ -38,7 +42,7 @@ public class MoneyTransfer {
 				.bankCode(creditBankCode)
 				.build();
 		order.setCreditAccount(creditAccount);
-				
+		order.setAmount(amount);
 		orderSender.sendPaymentOrder(order);
 	}
 	
@@ -79,7 +83,12 @@ public class MoneyTransfer {
 	public void setCreditBankCode(String creditBankCode) {
 		this.creditBankCode = creditBankCode;
 	}
-	
-	
 
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
 }

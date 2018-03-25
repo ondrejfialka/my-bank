@@ -15,7 +15,7 @@ import cz.ucl.jee.mybank.transfer.OrderSender;
 public class FraudProtectionDecorator implements OrderSender {
 
 	public static BigDecimal MAX_AMOUNT = new BigDecimal(1000000);
-	
+
 	@Inject
 	@Any
 	@Delegate
@@ -23,19 +23,19 @@ public class FraudProtectionDecorator implements OrderSender {
 	
 	@Inject
 	AccountBlackList blackList;
-	
+
 	public void sendPaymentOrder(PaymentOrder order) {
-		
+
 		if(blackList.isAccountOnList(order.getCreditAccount())){
 			System.out.println("Amount too large, transaction denied.");
 			return;
 		}
-				
+
 		if (order.getAmount().compareTo(MAX_AMOUNT) > 0){
 			System.out.println("Amount too large, transaction denied.");
 			return;
 		}
-		
+
 		orderSender.sendPaymentOrder(order);
 	}
 

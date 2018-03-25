@@ -15,8 +15,12 @@
 	     <h:inputText required="true" class="text" id="creditAccountNo" value="#{moneyTransfer.creditAccountNo}"/>/		
 		 <h:inputText required="true" class="text" id="creditBankCode" value="#{moneyTransfer.creditBankCode}"/>
 		<br />
+		 Amount: <br />
+		<h:inputText required="true" class="text" id="amount" value="#{moneyTransfer.amount}"/>
+		<br />
 		<h:commandButton id="submit" value="Submit" action="#{moneyTransfer.send}" />
-		
+		<br/>
+		<h:messages/>
 	</h:form>
 </h:body>
 </html>

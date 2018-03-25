@@ -37,9 +37,10 @@ public class FraudProtectionTest {
 		//verify, that the method has not been run (0 times)
 		Mockito.verify(orderSender, Mockito.times(0)).sendPaymentOrder(order);
 				
-		//amount is maximum than allowed - sendPaymentOrder should not execute
+		//amount is equal to maximum - sendPaymentOrder should not execute
 		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT);							
 		fpDecorator.sendPaymentOrder(order);
+		//verify, that the method was called
 		Mockito.verify(orderSender, Mockito.times(1)).sendPaymentOrder(order);
 	}
 	

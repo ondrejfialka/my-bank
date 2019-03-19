@@ -68,3 +68,7 @@ mb.iml
 .idea/libraries/Maven__javax_activation_activation_1_1.xml
 .idea/artifacts/mb_web_war.xml
 mb_web/mb_web.iml
+.idea/
+mb_web/target/
+mb_account_module/target/
+mb_transaction_module/target/

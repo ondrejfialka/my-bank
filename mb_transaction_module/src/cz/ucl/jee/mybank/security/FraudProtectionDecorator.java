@@ -19,24 +19,21 @@ public class FraudProtectionDecorator implements OrderSender {
 	@Inject
 	@Any
 	@Delegate
-	OrderSender orderSender;
+	private OrderSender orderSender;
 	
 	@Inject
-	AccountBlackList blackList;
+	private AccountBlackList blackList;
 
 	public void sendPaymentOrder(PaymentOrder order) {
 
 		if(blackList.isAccountOnList(order.getCreditAccount())){
-			System.out.println("Amount too large, transaction denied.");
+			System.out.println("Account on blacklist, transaction denied.");
 			return;
 		}
-
 		if (order.getAmount().compareTo(MAX_AMOUNT) > 0){
 			System.out.println("Amount too large, transaction denied.");
 			return;
 		}
-
 		orderSender.sendPaymentOrder(order);
 	}
-
 }

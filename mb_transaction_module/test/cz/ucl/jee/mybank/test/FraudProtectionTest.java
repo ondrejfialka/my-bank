@@ -19,20 +19,20 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class FraudProtectionTest {
 	
 	@Mock
-	OrderSender orderSender;
+	private OrderSender orderSender;
 	
 	@Mock
-	AccountBlackList blackList;
+	private AccountBlackList blackList;
 	
 	@InjectMocks
-	FraudProtectionDecorator fpDecorator;
+	private FraudProtectionDecorator fpDecorator;
 
 	@Test
     public void testMaxAmount() {
 		PaymentOrder order = new PaymentOrder();
 			
 		//amount is greater than allowed - sendPaymentOrder should not execute
-		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT.add(BigDecimal.ONE) );							
+		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT.add(BigDecimal.ONE) );
 		fpDecorator.sendPaymentOrder(order);
 		//verify, that the method has not been run (0 times)
 		Mockito.verify(orderSender, Mockito.times(0)).sendPaymentOrder(order);

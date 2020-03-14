@@ -19,13 +19,13 @@ import cz.ucl.jee.mybank.transfer.OrderSender;
 public class FraudProtectionTest {
 	
 	@Mock
-	OrderSender orderSender;
+	private OrderSender orderSender;
 	
 	@Mock
-	AccountBlackList blackList;
+	private AccountBlackList blackList;
 	
 	@InjectMocks
-	FraudProtectionDecorator fpDecorator;
+	private FraudProtectionDecorator fpDecorator;
 
 	@Test
     public void testMaxAmount() {

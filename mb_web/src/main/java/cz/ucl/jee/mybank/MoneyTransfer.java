@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class MoneyTransfer {
 	
 	@Inject
-	OrderSender orderSender;
+	private OrderSender orderSender;
 	
 	private int debitAccountPrefix;
 	private long debitAccountNo;

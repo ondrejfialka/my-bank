@@ -17,7 +17,7 @@ public class FraudProtectionDecorator {
 	public static BigDecimal MAX_AMOUNT = new BigDecimal(1000000);
 
 	//TODO Annotate
-	OrderSender orderSender;
+	private OrderSender orderSender;
 	
 	//TODO Inject AccountBlackList
 

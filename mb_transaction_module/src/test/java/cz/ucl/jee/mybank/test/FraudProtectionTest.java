@@ -47,7 +47,7 @@ public class FraudProtectionTest {
 	@Test
     public void testAccount() {		
 		PaymentOrder order = new PaymentOrder();
-		Account creditAccount = new Account.Builder().number(123456L).build();
+		Account creditAccount = Account.builder().number(123456L).build();
 		order.setCreditAccount(creditAccount);
 		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT);
 		

@@ -12,11 +12,11 @@ public class HardcodedAccountBlackList implements AccountBlackList {
 	
 	static {
 		blackList = new HashSet<Account>();
-		blackList.add(new Account.Builder()
+		blackList.add(Account.builder()
 				.prefix(0).number(123456)
 				.bankCode("0100")
 				.build());
-		blackList.add(new Account.Builder()
+		blackList.add(Account.builder()
 				.prefix(0)
 				.number(123456)
 				.bankCode("0800")

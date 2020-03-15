@@ -11,10 +11,16 @@ public class Account {
 	
 	private Account(){
 	}
+
+	public static Builder builder() {
+		return new Builder();
+	}
 	
 	public static class Builder {
 		private Account account = new Account();
-		
+
+		private Builder() {}
+
 		public Builder bankCode(String bankCode){
 			account.bankCode = bankCode;
 			return this;

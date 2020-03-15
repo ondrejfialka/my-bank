@@ -29,14 +29,14 @@ public class MoneyTransfer {
 	
 	public void send(){
 		PaymentOrder order = new PaymentOrder();
-		Account debitAccount = new Account.Builder()
+		Account debitAccount = Account.builder()
 				.prefix(debitAccountPrefix)
 				.number(debitAccountNo)
 				.bankCode(debitBankCode)
 				.build();
 		order.setDebitAccount(debitAccount);
 		
-		Account creditAccount = new Account.Builder()
+		Account creditAccount = Account.builder()
 				.prefix(creditAccountPrefix)
 				.number(creditAccountNo)
 				.bankCode(creditBankCode)

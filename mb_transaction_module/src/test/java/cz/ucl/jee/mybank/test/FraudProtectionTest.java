@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import cz.ucl.jee.mybank.accounts.Account;
 import cz.ucl.jee.mybank.accounts.AccountBlackList;
@@ -46,7 +46,7 @@ public class FraudProtectionTest {
 	
 	@Test
     public void testAccount() {		
-		PaymentOrder order = new PaymentOrder();	
+		PaymentOrder order = new PaymentOrder();
 		Account creditAccount = new Account.Builder().number(123456L).build();
 		order.setCreditAccount(creditAccount);
 		order.setAmount(FraudProtectionDecorator.MAX_AMOUNT);
@@ -57,6 +57,6 @@ public class FraudProtectionTest {
 		fpDecorator.sendPaymentOrder(order);
 		
 		//verify the method was not called
-		Mockito.verify(orderSender, Mockito.times(0)).sendPaymentOrder(order);		
+		Mockito.verify(orderSender, Mockito.times(0)).sendPaymentOrder(order);
     }
 }

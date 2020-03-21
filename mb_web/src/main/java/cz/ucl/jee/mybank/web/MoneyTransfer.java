@@ -1,4 +1,4 @@
-package cz.ucl.jee.mybank;
+package cz.ucl.jee.mybank.web;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
